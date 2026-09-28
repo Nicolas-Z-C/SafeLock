@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SafeLock.Application/SafeLock.Application.csproj" />
+    <Project Path="src/SafeLock.Domain/SafeLock.Domain.csproj" />
+    <Project Path="src/SafeLock.Infrastructure/SafeLock.Infrastructure.csproj" />
+    <Project Path="src/SafeLock.Shared/SafeLock.Shared.csproj" />
+  </Folder>
+  <Folder Name="/src/SafeLock.Web/">
+    <Project Path="src/SafeLock.Web/SafeLock.WebApi/SafeLock.WebApi.csproj" />
+    <Project Path="src/SafeLock.Web/SafeLock.WebAssembly/SafeLock.WebAssembly.csproj" />
+  </Folder>
+</Solution>

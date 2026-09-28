@@ -1,0 +1,158 @@
+{
+  "version": 2,
+  "dgSpecHash": "IC0m7Nj+pQw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ytraz\\.nuget\\packages\\dapper\\1.0.0\\dapper.1.0.0.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\fluentvalidation\\1.3.0\\fluentvalidation.1.3.0.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\mediatr\\0.1.0\\mediatr.0.1.0.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.12\\microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\microsoft.entityframeworkcore\\1.0.0\\microsoft.entityframeworkcore.1.0.0.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\1.0.0\\microsoft.entityframeworkcore.relational.1.0.0.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\1.0.0\\microsoft.entityframeworkcore.sqlserver.1.0.0.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\microsoft.openapi\\2.12.0\\microsoft.openapi.2.12.0.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\portable.commonservicelocator\\1.2.2\\portable.commonservicelocator.1.2.2.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\remotion.linq\\2.1.1\\remotion.linq.2.1.1.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.0.0\\runtime.native.system.data.sqlclient.sni.4.0.0.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\runtime.win7-x64.runtime.native.system.data.sqlclient.sni\\4.0.1\\runtime.win7-x64.runtime.native.system.data.sqlclient.sni.4.0.1.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\runtime.win7-x86.runtime.native.system.data.sqlclient.sni\\4.0.1\\runtime.win7-x86.runtime.native.system.data.sqlclient.sni.4.0.1.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\system.data.sqlclient\\4.1.0\\system.data.sqlclient.4.1.0.nupkg.sha512",
+    "C:\\Users\\ytraz\\.nuget\\packages\\system.interactive.async\\3.0.0\\system.interactive.async.3.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "message": "SafeLock.Infrastructure does not provide an inclusive lower bound for dependency Dapper. Dapper 1.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "Dapper",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "message": "SafeLock.Application does not provide an inclusive lower bound for dependency FluentValidation. FluentValidation 1.3.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "FluentValidation",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "message": "SafeLock.Application does not provide an inclusive lower bound for dependency MediatR. MediatR 0.1.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "MediatR",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "message": "SafeLock.Infrastructure does not provide an inclusive lower bound for dependency Microsoft.EntityFrameworkCore. Microsoft.EntityFrameworkCore 1.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "Microsoft.EntityFrameworkCore",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "message": "SafeLock.Infrastructure does not provide an inclusive lower bound for dependency Microsoft.EntityFrameworkCore.SqlServer. Microsoft.EntityFrameworkCore.SqlServer 1.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'System.Data.SqlClient' 4.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8g2p-5pqh-5jmc",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'System.Data.SqlClient' 4.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Dapper 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "Dapper",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'FluentValidation 1.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "FluentValidation",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'MediatR 0.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "MediatR",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'Portable.CommonServiceLocator 1.2.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Web\\SafeLock.WebApi\\SafeLock.WebApi.csproj",
+      "libraryId": "Portable.CommonServiceLocator",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "3JCEzZsM4j0=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Infrastructure\\SafeLock.Infrastructure.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1015",
+      "level": "Error",
+      "message": "The following PackageReference item(s) do not have a version specified: Dapper, Microsoft.EntityFrameworkCore, Microsoft.EntityFrameworkCore.SqlServer",
+      "projectPath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Infrastructure\\SafeLock.Infrastructure.csproj",
+      "filePath": "C:\\Users\\ytraz\\Desktop\\Repos\\SafeLock\\src\\SafeLock.Infrastructure\\SafeLock.Infrastructure.csproj",
+      "targetGraphs": []
+    }
+  ]
+}

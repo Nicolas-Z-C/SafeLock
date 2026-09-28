@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "SafeLock.Domain/1.0.0": {
+        "runtime": {
+          "SafeLock.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SafeLock.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
