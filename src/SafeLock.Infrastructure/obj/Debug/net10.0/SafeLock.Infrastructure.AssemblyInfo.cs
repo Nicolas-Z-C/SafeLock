@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SafeLock.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55a8299412fc1eb90136a8a3ef83886a60e2edf6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+448b6ae51658490ff9b73d9ccd0f31b212d09aef")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafeLock.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafeLock.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
