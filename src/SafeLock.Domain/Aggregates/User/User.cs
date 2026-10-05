@@ -7,6 +7,8 @@ namespace SafeLock.Domain.Aggregates.User
     public class User : UserEntity
     {
         public ImageUrl PFP {get; private set;}
+
+        private User () {}
         private User(Name name,
         Email email,
         PasswordHash password,

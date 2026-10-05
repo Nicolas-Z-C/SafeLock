@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SafeLock.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+448b6ae51658490ff9b73d9ccd0f31b212d09aef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bd579dd52cffb0e0a3b43e2b42d7f4ef26745bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafeLock.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafeLock.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
