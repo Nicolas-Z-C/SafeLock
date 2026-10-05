@@ -2,7 +2,7 @@ using SafeLock.Domain.Common.Result;
 
 namespace SafeLock.Domain.Common.ValueObjects
 {
-    public class ImageUrl : BaseVO
+    public sealed class ImageUrl : BaseVO
     {
         private const int Length = 500;
         

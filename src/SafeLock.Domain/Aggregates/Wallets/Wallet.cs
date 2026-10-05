@@ -2,7 +2,7 @@ using SafeLock.Domain.Common.Entities;
 using SafeLock.Domain.Common.Events;
 using SafeLock.Domain.Common.Result;
 
-namespace SafeLock.Domain.Aggregates.Wallet
+namespace SafeLock.Domain.Aggregates.Wallets
 {
     public class Wallet : AuditableEntity
     {

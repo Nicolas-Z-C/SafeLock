@@ -15,6 +15,9 @@ namespace SafeLock.Domain.Common
 
         [GeneratedRegex(@"^https?:\/\/[^\s/$.?#].[^\s]*$")]
         public static partial Regex Url();
+
+        [GeneratedRegex(@"^https?:\/\/[^\s/$.?#][^\s]*\.(mp4|webm|mov)(\?[^\s]*)?$", RegexOptions.IgnoreCase)]
+        public static partial Regex VideoUrl();
         
         [GeneratedRegex(@"^\$argon2id\$v=\d+\$m=\d+,t=\d+,p=\d+\$[A-Za-z0-9+/]+={0,2}\$[A-Za-z0-9+/]+={0,2}$")]
         public static partial Regex Argon2Hash();

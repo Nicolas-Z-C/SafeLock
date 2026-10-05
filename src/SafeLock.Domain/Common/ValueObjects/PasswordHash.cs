@@ -2,7 +2,7 @@ using SafeLock.Domain.Common.Result;
 
 namespace SafeLock.Domain.Common.ValueObjects
 {
-    public class PasswordHash : IEquatable<PasswordHash>
+    public sealed class PasswordHash : IEquatable<PasswordHash>
     {
         public string Valor { get; }
 

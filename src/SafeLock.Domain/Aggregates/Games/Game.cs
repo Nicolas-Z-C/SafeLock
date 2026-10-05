@@ -2,16 +2,19 @@ using SafeLock.Domain.Common.Entities;
 using SafeLock.Domain.Common.Result;
 using SafeLock.Domain.Common.ValueObjects;
 
-namespace SafeLock.Domain.Aggregates.Game
+namespace SafeLock.Domain.Aggregates.Games
 {
     public class Game : AuditableEntity
     {
-        public ImageUrl Image1 {get; private set;}
-        public ImageUrl? Image2 {get; private set;}
+        private readonly List<ImageUrl> _images = [];
+        public IReadOnlyCollection<ImageUrl> Images => _images.AsReadOnly();
+        private readonly List<VideoUrl> _videos = [];
+        public IReadOnlyCollection<VideoUrl> Videos => _videos.AsReadOnly();
+
         public decimal BasePrice {get; private set;}
         public decimal? DiscountPercentage {get; private set;}
         public Description Description {get; private set;}
-        public Name AutorName {get; private set;}
+        public Name Developer {get; private set;}
         public Requirements Requirements {get; private set;}
         public DateTime? DiscountStartUtc { get; private set; }
         public DateTime? DiscountEndUtc { get; private set; }
@@ -32,86 +35,79 @@ namespace SafeLock.Domain.Aggregates.Game
 
         private Game() {}
 
-        private Game(ImageUrl image1,
-        ImageUrl image2,
+        private Game(List<ImageUrl> imgs,
+        List<VideoUrl> videos,
         decimal price,
         Description description,
-        Name autorsName,
+        Name developer,
         Requirements requirements)
         {
-            Image1 = image1;
-            Image2 = image2;
+            _images = imgs;
+            _videos = videos;
             BasePrice = price;
             Description = description;
-            AutorName = autorsName;
+            Developer = developer;
             Requirements = requirements;
         }
 
         public static ResultGen<Game> Create(
-            string img1,
-            string img2,
+            List<string> imgs,
+            List<string> videos,
             decimal price,
             string description,
-            string autor,
+            string developer,
             string requirements
         )
-        {
-            List<Error> errors = [];
-            List<Result> results = [];
-
-            var image1 = ImageUrl.Create(img1);
-            results.Add(image1);
-
-            var image2 = ImageUrl.Create(img2);
-            results.Add(image2);
-
+        {   
+    
+            var imagesResults = imgs.Select(ImageUrl.Create).ToList();
+            var videosResults = videos.Select(VideoUrl.Create).ToList();
             var gameDescription = Description.Create(description);
-            results.Add(gameDescription);
+            var developerName = Name.Create(developer);
+            var gameRequirements = Requirements.Create(requirements);
 
-            var autorName = Name.Create(autor);
-            results.Add(autorName);
+            var all = imagesResults
+                        .Cast<Result>()
+                        .Concat(videosResults.Cast<Result>())
+                        .Append(gameDescription)
+                        .Append(developerName)
+                        .Append(gameRequirements)
+                        .ToArray();
 
-            var gamerequirements = Requirements.Create(requirements);
-            results.Add(gamerequirements);
+            var combined = Result.Combine(all);
 
-            foreach (var result in results)
-            {
-                if(result.IsFailure)
-                    foreach (var error in result.Errors)
-                    {
-                        errors.Add(error);
-                    }
-            }
+            var errors = new List<Error>(combined.Errors);
 
-            if(price < 0)
-                errors.Add(new Error("Game.Precio","El precio del juego es menor que 0"));
+            if (price < 0)
+                errors.Add(new Error("Game.Precio","Precio invalido"));
 
-            if(errors.Count != 0)
+            if (errors.Count != 0)
                 return ResultGen<Game>.Failure(errors);
+
             
             return ResultGen<Game>.Success(new Game(
-                image1.Value,
-                image2.Value,
+                [.. imagesResults.Select(x => x.Value)],
+                [.. videosResults.Select(x => x.Value)],
                 price,
                 gameDescription.Value,
-                autorName.Value,
-                gamerequirements.Value
+                developerName.Value,
+                gameRequirements.Value
             ));
         }
 
         //Game own Methods
         
-        public Result ScheduleDiscount(int percentage, DateTime StartUtc, DateTime EndUtc)
+        public Result ScheduleDiscount(int percentage, DateTime startUtc, DateTime endUtc)
         {
             if (percentage is < 0 or > 100)
-            return ResultGen<bool>.Failure(new Error("Game.Descuento","Descuento en rango invalido"));
+            return Result.Failure(new Error("Game.Descuento","Descuento en rango invalido"));
 
-            if (EndUtc <= StartUtc)
-                return ResultGen<bool>.Failure(new Error("Game.Descuento", "Descuento en tiempos invalidos"));
+            if (endUtc <= startUtc)
+                return Result.Failure(new Error("Game.Descuento", "Descuento en tiempos invalidos"));
 
             DiscountPercentage = percentage;
-            DiscountStartUtc = StartUtc;
-            DiscountEndUtc = EndUtc;
+            DiscountStartUtc = startUtc;
+            DiscountEndUtc = endUtc;
 
             return Result.Success();
         }

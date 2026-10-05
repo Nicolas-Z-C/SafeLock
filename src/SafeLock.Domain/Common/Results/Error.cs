@@ -1,4 +1,4 @@
-namespace SafeLock.Domain.Common.Result
+namespace SafeLock.Domain.Common.Results
 {
     public sealed record Error(string Codigo, string  Mensaje)
     {

@@ -1,4 +1,4 @@
-namespace SafeLock.Domain.Common
+namespace SafeLock.Domain.Common.Enums
 {
     public enum TransactionType
     {

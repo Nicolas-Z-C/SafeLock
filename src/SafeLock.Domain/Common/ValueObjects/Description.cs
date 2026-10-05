@@ -2,7 +2,7 @@ using SafeLock.Domain.Common.Result;
 
 namespace SafeLock.Domain.Common.ValueObjects
 {
-    public class Description : BaseVO
+    public sealed class Description : BaseVO
     {
         private const int Length = 10000;
         

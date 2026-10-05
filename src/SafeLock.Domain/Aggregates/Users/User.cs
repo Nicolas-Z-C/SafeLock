@@ -2,7 +2,7 @@ using SafeLock.Domain.Common.Entities;
 using SafeLock.Domain.Common.Result;
 using SafeLock.Domain.Common.ValueObjects;
 
-namespace SafeLock.Domain.Aggregates.User
+namespace SafeLock.Domain.Aggregates.Users
 {
     public class User : UserEntity
     {

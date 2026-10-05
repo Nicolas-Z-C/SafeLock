@@ -1,4 +1,4 @@
-namespace SafeLock.Domain.Common.Result
+namespace SafeLock.Domain.Common.Results
 {
     public class ResultGen<T> : Result
     {

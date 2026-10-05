@@ -1,6 +1,6 @@
 using SafeLock.Domain.Common.ValueObjects;
 
-namespace SafeLock.Domain.Common.Result
+namespace SafeLock.Domain.Common.Results
 {
     public class Requirements : BaseVO
     {
