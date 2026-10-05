@@ -1,5 +1,5 @@
 using SafeLock.Domain.Common.Entities;
-using SafeLock.Domain.Common.Result;
+using SafeLock.Domain.Common.Results;
 using SafeLock.Domain.Common.ValueObjects;
 
 namespace SafeLock.Domain.Aggregates.Games
