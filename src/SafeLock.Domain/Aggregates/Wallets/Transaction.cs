@@ -1,6 +1,6 @@
 using SafeLock.Domain.Common.Entities;
 using SafeLock.Domain.Common.Enums;
-using SafeLock.Domain.Common.Result;
+using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Aggregates.Wallet
 {

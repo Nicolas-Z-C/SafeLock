@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SafeLock.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bd579dd52cffb0e0a3b43e2b42d7f4ef26745bb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a47211dce9218a56b39ba7833d6103ccaf81e7f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafeLock.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafeLock.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

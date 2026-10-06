@@ -1,5 +1,6 @@
 using SafeLock.Domain.Common.Entities;
-using SafeLock.Domain.Common.Result;
+using SafeLock.Domain.Common.Errors;
+using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Aggregates.Library
 {
@@ -20,10 +21,10 @@ namespace SafeLock.Domain.Aggregates.Library
         public static ResultGen<LibraryEntry> Create(Guid user, Guid game)
         {
             if(user == Guid.Empty)
-                return ResultGen<LibraryEntry>.Failure(new Error("Libreria.UserId", "El user ID esta vacio"));
+                return ResultGen<LibraryEntry>.Failure(LibraryEntryErrors.EmptyUserID);
 
             if(game == Guid.Empty)
-                return ResultGen<LibraryEntry>.Failure(new Error("Libreria.GameID", "El game ID esta vacio"));
+                return ResultGen<LibraryEntry>.Failure(LibraryEntryErrors.EmptyGameID);
             
             return ResultGen<LibraryEntry>.Success(new LibraryEntry(user, game));
         }

@@ -1,6 +1,7 @@
 using SafeLock.Domain.Common.Entities;
+using SafeLock.Domain.Common.Errors;
 using SafeLock.Domain.Common.Events;
-using SafeLock.Domain.Common.Result;
+using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Aggregates.Wallets
 {
@@ -16,7 +17,7 @@ namespace SafeLock.Domain.Aggregates.Wallets
         public static ResultGen<Wallet> Create(Guid userId)
         {
             if(userId.Equals(Guid.Empty))
-                return ResultGen<Wallet>.Failure(new Error("Wallet.Usurio","El user id esta vacio"));
+                return ResultGen<Wallet>.Failure(WalletErrors.EmptyUserID);
             
             return ResultGen<Wallet>.Success(new Wallet(userId));
         }
@@ -26,10 +27,10 @@ namespace SafeLock.Domain.Aggregates.Wallets
         public Result Debitar(decimal amount)
         {
             if(amount < 0)
-                return Result.Failure(new Error("Wallet.Debito","El saldo a debitar es menor que 0"));
+                return Result.Failure(WalletErrors.NegativeAmountDebit);
             
             if(amount > Balance)
-                return Result.Failure(new Error("Wallet.Saldo insuficiente","El saldo a debitar es mayor que el balance actual"));
+                return Result.Failure(WalletErrors.InsufficientBalance);
             
             Balance -= amount;
             AddDomainEvent(new DebitEntry(UserId,Id,amount, DateTime.UtcNow));
@@ -39,11 +40,13 @@ namespace SafeLock.Domain.Aggregates.Wallets
         public Result Accredit(decimal amount)
         {
             if(amount < 0)
-                return Result.Failure(new Error("Wallet.Abono","El saldo a abonar es menor que 0"));
+                return Result.Failure(WalletErrors.negativeAccredit);
             
             if(amount > 100000)
-                return Result.Failure(new Error("Wallet.Abono","El saldo a abonar es mayor que el limite de la wallet"));
+                return Result.Failure(WalletErrors.AccreditLimitExceeded);
             
+            if(Balance + amount > 100000)
+                return Result.Failure(WalletErrors.WalletLimit);
             Balance += amount;
             AddDomainEvent(new AccreditEntry(UserId,Id,amount, DateTime.UtcNow));
             return Result.Success();

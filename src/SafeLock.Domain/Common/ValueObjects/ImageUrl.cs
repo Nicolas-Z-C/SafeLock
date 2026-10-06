@@ -1,4 +1,4 @@
-using SafeLock.Domain.Common.Result;
+using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Common.ValueObjects
 {

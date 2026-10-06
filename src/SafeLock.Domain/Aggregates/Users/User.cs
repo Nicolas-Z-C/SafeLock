@@ -1,5 +1,5 @@
 using SafeLock.Domain.Common.Entities;
-using SafeLock.Domain.Common.Result;
+using SafeLock.Domain.Common.Results;
 using SafeLock.Domain.Common.ValueObjects;
 
 namespace SafeLock.Domain.Aggregates.Users
@@ -24,30 +24,26 @@ namespace SafeLock.Domain.Aggregates.Users
             string pfpurl
         )
         {
-            List<Error> errors = [];
-            List<Result> results = [];
+    
+            List<Result> all = [];
 
             var resultName = Name.Create(name);
-            results.Add(resultName);
+            all.Add(resultName);
             var resultEmail = Email.Create(email);
-            results.Add(resultEmail);
+            all.Add(resultEmail);
             var resultPassword = PasswordHash.Create(password);
-            results.Add(resultPassword);
+            all.Add(resultPassword);
             var resultPFP = ImageUrl.Create(pfpurl);
-            results.Add(resultPFP);
+            all.Add(resultPFP);
 
-            foreach (var result in results)
-            {
-                if(result.IsFailure)
-                    foreach (var error in result.Errors)
-                    {
-                        errors.Add(error);
-                    }
-            }
+            var combined = Result.Combine([.. all]);
+
+            var errors = new List<Error>(combined.Errors);
 
             if(errors.Count != 0)
                 return ResultGen<User>.Failure(errors);
             
+
             return ResultGen<User>.Success(new User(
                 resultName.Value,
                 resultEmail.Value,

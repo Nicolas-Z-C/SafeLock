@@ -1,4 +1,5 @@
 using SafeLock.Domain.Common.Entities;
+using SafeLock.Domain.Common.Errors;
 using SafeLock.Domain.Common.Results;
 using SafeLock.Domain.Common.ValueObjects;
 
@@ -65,7 +66,7 @@ namespace SafeLock.Domain.Aggregates.Games
             var gameDescription = Description.Create(description);
             var developerName = Name.Create(developer);
             var gameRequirements = Requirements.Create(requirements);
-
+    
             var all = imagesResults
                         .Cast<Result>()
                         .Concat(videosResults.Cast<Result>())
@@ -79,11 +80,13 @@ namespace SafeLock.Domain.Aggregates.Games
             var errors = new List<Error>(combined.Errors);
 
             if (price < 0)
-                errors.Add(new Error("Game.Precio","Precio invalido"));
+                errors.Add(GameErrors.InvalidPrice);
+
+            if(imgs.Count == 0)
+                errors.Add(GameErrors.NoImages);
 
             if (errors.Count != 0)
                 return ResultGen<Game>.Failure(errors);
-
             
             return ResultGen<Game>.Success(new Game(
                 [.. imagesResults.Select(x => x.Value)],
@@ -100,10 +103,10 @@ namespace SafeLock.Domain.Aggregates.Games
         public Result ScheduleDiscount(int percentage, DateTime startUtc, DateTime endUtc)
         {
             if (percentage is < 0 or > 100)
-            return Result.Failure(new Error("Game.Descuento","Descuento en rango invalido"));
+            return Result.Failure(GameErrors.DiscountPercentageInvalid);
 
             if (endUtc <= startUtc)
-                return Result.Failure(new Error("Game.Descuento", "Descuento en tiempos invalidos"));
+                return Result.Failure(GameErrors.DiscountTimeInvalid);
 
             DiscountPercentage = percentage;
             DiscountStartUtc = startUtc;

@@ -1,4 +1,5 @@
-using SafeLock.Domain.Common.Result;
+using SafeLock.Domain.Common.Errors;
+using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Common.ValueObjects
 {
@@ -10,10 +11,10 @@ namespace SafeLock.Domain.Common.ValueObjects
         public static ResultGen<PasswordHash> Create(string valor)
         {
             if (string.IsNullOrWhiteSpace(valor))
-                return ResultGen<PasswordHash>.Failure(new Error("Hash.Vacio","La Hash no puede estar vacia"));
+                return ResultGen<PasswordHash>.Failure(HashErrors.EmptyHash);
 
             if (!RegexPatterns.Argon2Hash().IsMatch(valor))
-                return ResultGen<PasswordHash>.Failure(new Error("Hash.FormatoIncorrecto","La hash no tiene el formato correcto"));
+                return ResultGen<PasswordHash>.Failure(HashErrors.IncorrectHashFormat);
             
             return ResultGen<PasswordHash>.Success(new PasswordHash(valor));
         }

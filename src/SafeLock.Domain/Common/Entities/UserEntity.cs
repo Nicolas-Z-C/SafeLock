@@ -1,6 +1,7 @@
 using SafeLock.Domain.Common.ValueObjects;
-using SafeLock.Domain.Common.Result;
+using SafeLock.Domain.Common.Results;
 using SafeLock.Domain.Common.Events;
+using SafeLock.Domain.Common.Errors;
 
 namespace SafeLock.Domain.Common.Entities
 {
@@ -24,10 +25,10 @@ namespace SafeLock.Domain.Common.Entities
         protected ResultGen<bool> RequestPasswordChange(string token, TimeSpan duration)
             {
                 if(!IsActive)
-                    return ResultGen<bool>.Failure(new Error("Usuario.Inactivo","El usuario se encuentra inactivo"));
+                    return ResultGen<bool>.Failure(BaseUserErrors.UserInactive);
                 
                 if(string.IsNullOrWhiteSpace(token))
-                    return ResultGen<bool>.Failure(new Error("Usuario.Token","El token se encuentra vacio"));
+                    return ResultGen<bool>.Failure(BaseUserErrors.UserEmptyToken);
                 
                 var expiration = DateTime.UtcNow.Add(duration);
 
@@ -40,7 +41,7 @@ namespace SafeLock.Domain.Common.Entities
         protected ResultGen<bool> Desactivar()
         {
             if (!IsActive)
-                return ResultGen<bool>.Failure(new Error("Usuario.Inactivo","El usuario se encuentra inactivo"));
+                return ResultGen<bool>.Failure(BaseUserErrors.UserInactive);
 
             IsActive = false;
             return ResultGen<bool>.Success(true);
