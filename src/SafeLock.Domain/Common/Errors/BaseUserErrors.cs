@@ -14,6 +14,9 @@ namespace SafeLock.Domain.Common.Errors
 
         public static readonly Error UserAlreadyActive = 
         new ("User.Active","The user is already active", ErrorType.Exception);
+
+        public static readonly Error InvalidResetToken = 
+        new ("User.ResetToken","The token is invalid");
         
     }
 }

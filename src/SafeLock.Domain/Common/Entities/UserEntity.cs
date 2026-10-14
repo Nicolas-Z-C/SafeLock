@@ -2,6 +2,8 @@ using SafeLock.Domain.Common.ValueObjects;
 using SafeLock.Domain.Common.Results;
 using SafeLock.Domain.Common.Events;
 using SafeLock.Domain.Common.Errors;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SafeLock.Domain.Common.Entities
 {
@@ -12,6 +14,8 @@ namespace SafeLock.Domain.Common.Entities
         public Email Email { get; protected set; } = null!;
         public PasswordHash PasswordHash { get; protected set; } = null!;
         public bool IsActive { get; protected set; }
+        public string? PasswordResetTokenHash { get; private set; }
+        public DateTime? PasswordResetExpiresUtc { get; private set; }
 
         protected UserEntity() { } 
 
@@ -34,7 +38,7 @@ namespace SafeLock.Domain.Common.Entities
                 
                 var expiration = DateTime.UtcNow.Add(duration);
 
-                AddDomainEvent(new PasswordReset(Id, Email, token, expiration, DateTime.UtcNow));
+                AddDomainEvent(new PasswordResetRequested(Id, Email, token, expiration, DateTime.UtcNow));
 
                 return Result.Success();
                 
@@ -58,10 +62,51 @@ namespace SafeLock.Domain.Common.Entities
             return Result.Success();
         }
 
-        protected Result ChangePassword(PasswordHash newHash)
+        public Result RequestPasswordReset(string token, string tokenHash, TimeSpan duration)
+        {
+            if (!IsActive)
+                return Result.Failure(BaseUserErrors.UserInactive);
+
+            if (string.IsNullOrWhiteSpace(token) || string.IsNullOrWhiteSpace(tokenHash))
+                return Result.Failure(BaseUserErrors.UserEmptyToken);
+
+            var expiration = DateTime.UtcNow.Add(duration);
+
+            PasswordResetTokenHash = tokenHash;     
+            PasswordResetExpiresUtc = expiration;
+
+            AddDomainEvent(new PasswordResetRequested(Id, Email, token, expiration, DateTime.UtcNow));
+            return Result.Success();
+        }
+
+        public Result ResetPassword(string tokenHash, PasswordHash newHash)
+        {
+            var valid = IsActive
+                && PasswordResetTokenHash is not null
+                && PasswordResetExpiresUtc > DateTime.UtcNow
+                && CryptographicOperations.FixedTimeEquals(
+                    Encoding.UTF8.GetBytes(PasswordResetTokenHash),
+                    Encoding.UTF8.GetBytes(tokenHash));
+
+            if (!valid)
+                return Result.Failure(BaseUserErrors.InvalidResetToken);
+
+            PasswordHash = newHash;
+            ClearPasswordReset();    
+            return Result.Success();
+        }
+
+        public Result ChangePassword(PasswordHash newHash)
         {
             PasswordHash = newHash;
+            ClearPasswordReset();   
             return Result.Success();
+        }
+
+        private void ClearPasswordReset()
+        {
+            PasswordResetTokenHash = null;
+            PasswordResetExpiresUtc = null;
         }
     }
 }
