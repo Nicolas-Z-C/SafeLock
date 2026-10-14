@@ -6,17 +6,11 @@ namespace SafeLock.Domain.Aggregates.Users
 {
     public class User : UserEntity
     {
-        public ImageUrl PFP {get; private set;}
-
         private User () {}
         private User(Name name,
         Email email,
         PasswordHash password,
-        ImageUrl image) :base(name,email,password)
-        {
-            PFP = image;
-        }
-
+        ImageUrl image) :base(name,email,password,image) {}
         public static ResultGen<User> Create(
             string name,
             string email,

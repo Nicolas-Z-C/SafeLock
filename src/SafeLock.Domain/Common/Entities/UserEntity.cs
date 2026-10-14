@@ -7,6 +7,7 @@ namespace SafeLock.Domain.Common.Entities
 {
     public abstract class UserEntity : AuditableEntity
     {
+        public ImageUrl PFP {get; private set;}
         public Name Name { get; protected set; } = null!;
         public Email Email { get; protected set; } = null!;
         public PasswordHash PasswordHash { get; protected set; } = null!;
@@ -14,11 +15,12 @@ namespace SafeLock.Domain.Common.Entities
 
         protected UserEntity() { } 
 
-        protected UserEntity(Name name, Email email, PasswordHash passwordHash)
+        protected UserEntity(Name name, Email email, PasswordHash passwordHash, ImageUrl pfp)
         {
             Name = name;
             Email = email;
             PasswordHash = passwordHash;
+            PFP = pfp;
             IsActive = true;
         }
 
