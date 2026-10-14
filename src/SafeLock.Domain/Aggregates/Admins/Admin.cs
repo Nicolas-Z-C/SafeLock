@@ -45,5 +45,15 @@ namespace SafeLock.Domain.Aggregates.Admins
                 resultPFP.Value
             ));
         }
+
+        public new Result ResetPassword(string tokenHash, PasswordHash newHash) =>
+        base.ResetPassword(tokenHash, newHash);
+
+        public new Result RequestPasswordReset(string token, string tokenHash, TimeSpan duration) =>
+            base.RequestPasswordReset(token, tokenHash, duration);
+
+        public new Result ChangePassword(PasswordHash newHash) =>
+            base.ChangePassword(newHash);
+    
     }
 }

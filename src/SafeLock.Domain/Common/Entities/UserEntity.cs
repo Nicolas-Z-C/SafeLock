@@ -40,7 +40,7 @@ namespace SafeLock.Domain.Common.Entities
         protected Result Reactivar()
         {
             if (IsActive)
-                return Result.Failure(new Error("Usuario.Activo","El usuario se encuentra activo"));
+                return Result.Failure(BaseUserErrors.UserAlreadyActive);
 
             IsActive = true;
             return Result.Success();
