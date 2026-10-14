@@ -48,5 +48,18 @@ namespace SafeLock.Domain.Aggregates.Games
 
             return ResultGen<Review>.Success(new (vote,user,game,result.Value));
         }
+
+        public Result EditDescription(bool newVote,string newDescription)
+        {
+
+            IsRecomended = newVote;
+            var result = Description.Create(newDescription);
+            if(result.IsFailure)
+                return Result.Failure(result.Errors);
+            
+            Modified();
+            return Result.Success();
+
+        }
     }
 }

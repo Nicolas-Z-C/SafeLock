@@ -24,44 +24,44 @@ namespace SafeLock.Domain.Common.Entities
             IsActive = true;
         }
 
-        protected ResultGen<bool> RequestPasswordChange(string token, TimeSpan duration)
+        protected Result RequestPasswordChange(string token, TimeSpan duration)
             {
                 if(!IsActive)
-                    return ResultGen<bool>.Failure(BaseUserErrors.UserInactive);
+                    return Result.Failure(BaseUserErrors.UserInactive);
                 
                 if(string.IsNullOrWhiteSpace(token))
-                    return ResultGen<bool>.Failure(BaseUserErrors.UserEmptyToken);
+                    return Result.Failure(BaseUserErrors.UserEmptyToken);
                 
                 var expiration = DateTime.UtcNow.Add(duration);
 
                 AddDomainEvent(new PasswordReset(Id, Email, token, expiration, DateTime.UtcNow));
 
-                return ResultGen<bool>.Success(true);
+                return Result.Success();
                 
             }
 
-        protected ResultGen<bool> Desactivar()
+        protected Result Desactivar()
         {
             if (!IsActive)
-                return ResultGen<bool>.Failure(BaseUserErrors.UserInactive);
+                return Result.Failure(BaseUserErrors.UserInactive);
 
             IsActive = false;
-            return ResultGen<bool>.Success(true);
+            return Result.Success();
         }
 
-        protected ResultGen<bool> Reactivar()
+        protected Result Reactivar()
         {
             if (IsActive)
-                return ResultGen<bool>.Failure(new Error("Usuario.Activo","El usuario se encuentra activo"));
+                return Result.Failure(new Error("Usuario.Activo","El usuario se encuentra activo"));
 
             IsActive = true;
-            return ResultGen<bool>.Success(true);
+            return Result.Success();
         }
 
-        protected ResultGen<bool> ChangePassword(PasswordHash newHash)
+        protected Result ChangePassword(PasswordHash newHash)
         {
             PasswordHash = newHash;
-            return ResultGen<bool>.Success(true);
+            return Result.Success();
         }
     }
 }
