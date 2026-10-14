@@ -2,10 +2,10 @@ using SafeLock.Domain.Interfaces.Events;
 
 namespace SafeLock.Domain.Common.Events
 {
-    public sealed record AccreditEntry(
+    public sealed record WalletCredited(
         Guid UserId,
         Guid WalletId,
         decimal Amount,
-        DateTime UtcOcurredAt
+        DateTime UtcOccurredAt 
     ) : IDomainEvent{}
 }

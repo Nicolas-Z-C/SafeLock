@@ -33,11 +33,11 @@ namespace SafeLock.Domain.Aggregates.Wallets
                 return Result.Failure(WalletErrors.InsufficientBalance);
             
             Balance -= amount;
-            AddDomainEvent(new DebitEntry(UserId,Id,amount, DateTime.UtcNow));
+            AddDomainEvent(new WalletDebited(UserId,Id,amount, DateTime.UtcNow));
             return Result.Success();
         }
 
-        public Result Accredit(decimal amount)
+        public Result Credit(decimal amount)
         {
             if(amount < 0)
                 return Result.Failure(WalletErrors.negativeAccredit);
@@ -48,7 +48,7 @@ namespace SafeLock.Domain.Aggregates.Wallets
             if(Balance + amount > 100000)
                 return Result.Failure(WalletErrors.WalletLimit);
             Balance += amount;
-            AddDomainEvent(new AccreditEntry(UserId,Id,amount, DateTime.UtcNow));
+            AddDomainEvent(new WalletCredited(UserId,Id,amount, DateTime.UtcNow));
             return Result.Success();
         }
     }
