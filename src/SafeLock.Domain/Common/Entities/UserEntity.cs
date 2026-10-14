@@ -28,22 +28,6 @@ namespace SafeLock.Domain.Common.Entities
             IsActive = true;
         }
 
-        protected Result RequestPasswordChange(string token, TimeSpan duration)
-            {
-                if(!IsActive)
-                    return Result.Failure(BaseUserErrors.UserInactive);
-                
-                if(string.IsNullOrWhiteSpace(token))
-                    return Result.Failure(BaseUserErrors.UserEmptyToken);
-                
-                var expiration = DateTime.UtcNow.Add(duration);
-
-                AddDomainEvent(new PasswordResetRequested(Id, Email, token, expiration, DateTime.UtcNow));
-
-                return Result.Success();
-                
-            }
-
         protected Result Desactivar()
         {
             if (!IsActive)
@@ -62,7 +46,7 @@ namespace SafeLock.Domain.Common.Entities
             return Result.Success();
         }
 
-        public Result RequestPasswordReset(string token, string tokenHash, TimeSpan duration)
+        protected Result RequestPasswordReset(string token, string tokenHash, TimeSpan duration)
         {
             if (!IsActive)
                 return Result.Failure(BaseUserErrors.UserInactive);
@@ -79,7 +63,7 @@ namespace SafeLock.Domain.Common.Entities
             return Result.Success();
         }
 
-        public Result ResetPassword(string tokenHash, PasswordHash newHash)
+        protected Result ResetPassword(string tokenHash, PasswordHash newHash)
         {
             var valid = IsActive
                 && PasswordResetTokenHash is not null
@@ -96,7 +80,7 @@ namespace SafeLock.Domain.Common.Entities
             return Result.Success();
         }
 
-        public Result ChangePassword(PasswordHash newHash)
+        protected Result ChangePassword(PasswordHash newHash)
         {
             PasswordHash = newHash;
             ClearPasswordReset();   
