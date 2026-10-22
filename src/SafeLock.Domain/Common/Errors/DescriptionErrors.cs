@@ -7,10 +7,10 @@ namespace SafeLock.Domain.Common.Errors
     {
         
         public static readonly Error RegexNotMatched =
-        new ("VODomain.Regex","The value does not have the adecuate format",ErrorType.Validation);
+        new ("VODomain.Regex","The value does not have the adecuate format");
 
         public static readonly Error MaxLenghtExceeded =
-        new ("VODomain.Lenght","The leght provided is too long",ErrorType.Validation);
+        new ("VODomain.Lenght","The leght provided is too long");
 
     }
 }
