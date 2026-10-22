@@ -3,7 +3,7 @@ using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Common.Errors
 {
-    public class BaseUserErrors
+    public static class BaseUserErrors
     {
         
         public static readonly Error UserInactive = 

@@ -4,7 +4,7 @@ using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Common.Errors
 {
-    public class GameErrors
+    public static class GameErrors
     {
         
         public static readonly Error InvalidPrice =

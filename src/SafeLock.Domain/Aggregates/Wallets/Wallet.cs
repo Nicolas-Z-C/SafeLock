@@ -24,7 +24,7 @@ namespace SafeLock.Domain.Aggregates.Wallets
 
         //Metodos propios del objeto
 
-        public Result Debitar(decimal amount)
+        public Result Debit(decimal amount)
         {
             if(amount < 0)
                 return Result.Failure(WalletErrors.NegativeAmountDebit);

@@ -3,7 +3,7 @@ using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Common.Errors
 {
-    public class VOErrors
+    public static class VOErrors
     {
         public static readonly Error EmptyValue =
         new ("VODomain.Empty","The value cannot be empty",ErrorType.Validation);

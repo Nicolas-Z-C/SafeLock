@@ -3,7 +3,7 @@ using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Common.Errors
 {
-    public class HashErrors
+    public static class HashErrors
     {
         
         public static readonly Error EmptyHash =

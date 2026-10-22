@@ -3,7 +3,7 @@ using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Common.Errors
 {
-    public class ReviewErrors
+    public static static class ReviewErrors
     {
         public static readonly Error EmptyUserID = 
         new ("Review.UserId","The user id is empty",ErrorType.Exception);

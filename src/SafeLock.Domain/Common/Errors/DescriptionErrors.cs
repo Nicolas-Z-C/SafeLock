@@ -3,7 +3,7 @@ using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Common.Errors
 {
-    public class DescriptionErrors
+    public static class DescriptionErrors
     {
         
         public static readonly Error RegexNotMatched =

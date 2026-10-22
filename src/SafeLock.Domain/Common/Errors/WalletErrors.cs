@@ -3,7 +3,7 @@ using SafeLock.Domain.Common.Results;
 
 namespace SafeLock.Domain.Common.Errors
 {
-    public class WalletErrors
+    public static class WalletErrors
     {
         
         public static readonly Error EmptyUserID = 
