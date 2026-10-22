@@ -7,7 +7,6 @@ namespace SafeLock.Domain.Aggregates.Games
 {
     public class Review : AuditableEntity
     {
-        public bool IsActive {get; private set;} = true;
         public bool IsRecomended {get; private set;}
         public Guid UserId {get; private set;}
         public Guid GameId {get; private set;}

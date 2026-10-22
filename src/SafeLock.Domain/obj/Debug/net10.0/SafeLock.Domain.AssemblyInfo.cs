@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SafeLock.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+421b3dbc3fb7e6645ed9703b4afbe5720348a145")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57a0cebcd17c7dfcabe243e441fc839bfa088383")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafeLock.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafeLock.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
